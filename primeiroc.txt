@@ -1,4 +1,6 @@
 asasaassa
-aa
-ad
-ds
+
+public void setNome(String nome){
+	this.nome = nome;
+}
+
