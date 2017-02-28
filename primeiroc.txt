@@ -3,6 +3,7 @@ aa
 ad
 ds
 
+<<<<<<< HEAD
 
 public void setNome(String nome) {
         this.nome = nome;
@@ -15,3 +16,17 @@ public void setNome(String nome) {
 public void setCPF(String cps){
 	this.cpf = cpf;
 }
+=======
+hhhh
+
+public String getNome(){
+	return nome;
+}
+
+
+public void setNome(String nome){
+	this.nome = nome;
+}
+
+
+>>>>>>> develop
