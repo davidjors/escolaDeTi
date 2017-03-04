@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PDV</title>
+</head>
+<script type="text/javascript">
+	var produtos =  [];
+	var vendaEfetuadas = [];
+	/*{
+		codigo,nome,preco,estoque
+	}*/
+	function adicionarProduto(){
+		var produto = {};
+		produto.codigo = parseInt(prompt("Informe o codigo do produto:"));
+		produto.nome = prompt("Informe o nome do produto:");
+		produto.preco = parseFloat(prompt("Informe o preço do produto:"));
+		produto.estoque = parseInt(prompt("Informe o estoque do produto:"));
+		produtos.push(produto);
+		console.log(produtos);
+	}
+	function adicionarProdutos(){	
+		do{
+			var opcaoProduto = parseInt(prompt("1 - adicionar \n 2 - excluir \n 3 - sair"));
+			switch(opcaoProduto) {
+			    case 1:
+			    	adicionarProduto();
+			        break;
+			    case 2:
+			    	var excluir = 0;
+					excluir = parseInt(prompt("Informe o codigo do produto: "));
+					for (var i = 0; i < produtos.length; i++) {
+						console.log(produtos[i].codigo);
+						if(produtos[i].codigo === excluir){
+							produtos.splice(i,1);
+							alert("Excluido com sucesso.");
+							break;
+						}
+					}
+					console.log(produtos);
+			    	break;
+			    default:
+			        console.log("deu merda");
+			        break;
+			}
+		}while(opcaoProduto != 3);
+
+		/*produto.codigo = parseInt(prompt("Informe o codigo do produto:"));
+		produto.nome = prompt("Informe o nome do produto:");
+		produto.preco = parseFloat(prompt("Informe o preço do produto:"));
+		produto.estoque = parseInt(prompt("Informe o estoque do produto:"));
+		produtos.push(produto);
+		console.log(produtos);*/
+	}
+
+	function compraProdutos(){
+		var codCompra;
+		codCompra = parseInt(prompt("Informe o codigo do produto: "));
+		for (var i = 0; i < produtos.length; i++) {
+			if(produtos[i].codigo === codCompra){
+				var quantidade = parseInt(prompt("Informe a quantidade que deseja comprar"));
+				if(produtos[i].estoque > 0 ){
+					alert("compra efetuada com sucesso!");
+					produtos[i].estoque = produtos[i].estoque + quantidade;
+				}else{
+					alert("Impossivel de realizar a compra.");
+				}
+			}
+		}
+		console.log(produtos[0]);
+	}
+
+	function vendaProdutos(){
+		var codVenda;
+		codVenda = parseInt(prompt("Informe o codigo do produto: "));
+		for (var i = 0; i < produtos.length; i++) {
+			if(produtos[i].codigo === codVenda){
+				var quantidade = parseInt(prompt("Informe a quantidade que deseja vender"));
+				if(produtos[i].estoque > 0 ){
+					alert("venda efetuada com sucesso!");
+					produtos[i].estoque = produtos[i].estoque - quantidade;
+				}else{
+					alert("Impossivel de realizar a venda.");
+				}
+			}
+		}
+		console.log(produtos[0]);
+	}
+
+	function relatorios(){
+		var produto;
+		var compra;
+		var venda;
+
+		alert("+++++LISTAGEM DE PRODUTOS+++++");
+		for (var i = 0; i < produtos.length; i++){
+					
+		}
+	}
+
+
+	do{
+		var opcao = parseInt(prompt("1 - produto \n 2 - compra \n 3 - venda \n 4 -  relatorios \n 0 -  sair"));
+		switch(opcao) {
+		    case 1:
+		        adicionarProdutos();
+		        break;
+		    case 2:
+		    	compraProdutos();
+		    	break;
+		    case 3:
+		        vendaProdutos();
+		        break;
+		    default:
+		        console.log("deu merda");
+		        break;
+		}
+	}while(opcao != 0);
+</script>
+<body>
+
+</body>
+</html>
